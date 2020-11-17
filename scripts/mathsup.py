@@ -2,10 +2,10 @@ def fact(x):
     """
     x = int\n\nReturn x!
     """
-    if x == 1:
-        return 1
-    else:
-        return x * fact(x-1)
+    r = 1
+    for i in range(x):
+        r = r * (i + 1)
+    return r
 
 
 def combi(n, k):
