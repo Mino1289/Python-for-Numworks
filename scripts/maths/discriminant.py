@@ -1,4 +1,4 @@
-from MathSup import disc
+from mathsup import disc
 from math import sqrt
 
 
