@@ -32,3 +32,10 @@ def permut(n):
     """
     x = fact(n)
     return int(x)
+
+def disc(a, b, c):
+    """
+    a, b, c = int or float\n\nReturn b^2-4ac
+    """
+    d = (b**2)-(4*a*c)
+    return int(d)
