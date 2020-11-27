@@ -13,5 +13,5 @@ if (d > 0):
 elif d==0:
     print("x = -" + str(b) + "/(2*" + str(a) + ")\n= " + str(-b/(2*a)))
 elif (d < 0):
-    print("z1 = (-" + str(b) + "-i*sqrt(-(" + str(d) + ")))/(2*" + str(a) + ")\n= " + str((-b-sqrt(-d))/(2*a)))
-    print("z2 = (-" + str(b) + "-i*sqrt(-(" + str(d) + ")))/(2*" + str(a) + ")\n= " + str((-b+sqrt(-d))/(2*a)))
+    print("z1 = (" + str(-b) + "-i*sqrt(" + str(-d) + "))/(2*" + str(a) + ")\n= " + str(complex((-b/(2*a)), -(sqrt(-d))/(2*a))))
+    print("z2 = (" + str(-b) + "+i*sqrt(" + str(-d) + "))/(2*" + str(a) + ")\n= " + str(complex((-b/(2*a)), (sqrt(-d))/(2*a))))
