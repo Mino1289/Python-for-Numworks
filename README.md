@@ -1,2 +1,5 @@
 # Python-for-Numworks
-Python scripts for the Calculator <a href="https://www.numworks.com/" target="_BLANK">Numworks</a>
+Python scripts for the Calculator <a href="https://www.numworks.com/">Numworks</a>
+
+### Some questions ?
+Feel free to dm me on Discord : `Mino#1289`
