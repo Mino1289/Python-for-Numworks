@@ -1,5 +1,5 @@
 from mathsup import disc
-from cmath import sqrt
+from math import sqrt
 
 
 a = float(input("a = "))
@@ -7,7 +7,7 @@ b = float(input("b = "))
 c = float(input("c = "))
 
 d = disc(a, b, c)
-print(f"\n d = {d}")
+print("\n d = " + str(d))
 if (d > 0):
     print("x1 = (" + str(-b) + "-sqrt(" + str(d) + "))/(2*" + str(a) + ")\n= " + str((-b-sqrt(d))/(2*a)))
     print("x2 = (" + str(-b) + "+sqrt(" + str(d) + "))/(2*" + str(a) + ")\n= " + str((-b+sqrt(d))/(2*a)))
