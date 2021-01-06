@@ -39,3 +39,9 @@ def disc(a, b, c):
     """
     d = (b**2)-(4*a*c)
     return int(d)
+
+def iscong(a,b,n):
+    """
+    a, b, n = int > 0\n\nReturn bool if a%n == b%n
+    """
+    return a%n == b%n
