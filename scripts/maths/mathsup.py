@@ -25,7 +25,6 @@ def arran(n, k):
     x = fact(n) / fact((n - k))
     return int(x)
 
-
 def permut(n):
     """
     n = int\n\nReturn n!
@@ -39,6 +38,14 @@ def disc(a, b, c):
     """
     d = (b**2)-(4*a*c)
     return int(d)
+
+def dive(a,b):
+    """
+    a & b = int\n\nReturn q & r in a = b*q+r
+    """
+    q = a//b
+    r = a%b
+    return q, r
 
 def iscong(a,b,n):
     """
