@@ -45,10 +45,13 @@ def dive(a,b):
     """
     q = a//b
     r = a%b
+    if r > b or r < 0:
+        r -= b
+        q += 1
     return q, r
 
 def iscong(a,b,n):
     """
-    a, b, n = int > 0\n\nReturn bool if a%n == b%n
+    a, b, n = int\n\nReturn bool if a is congruent to b modulo n
     """
-    return a%n == b%n
+    return (a-b)%n == 0
