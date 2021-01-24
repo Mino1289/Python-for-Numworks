@@ -10,7 +10,7 @@ def fact(x):
 
 def combi(n, k):
     """
-    n, k = int\n\nReturn k among n
+    n, k = int\n\nReturn k among n.
     """
     x = fact(n) / (fact((n - k)) * fact(k))
     return int(x)
@@ -18,7 +18,7 @@ def combi(n, k):
 
 def arran(n, k):
     """
-    n, k = int\n\nReturn arrangement of k objects among n
+    n, k = int\n\nReturn arrangement of k objects among n.
     """
     if k > n:
         return
@@ -34,14 +34,14 @@ def permut(n):
 
 def disc(a, b, c):
     """
-    a, b, c = int or float\n\nReturn b^2-4ac
+    a, b, c = int or float\n\nReturn b^2-4ac.
     """
     d = (b**2)-(4*a*c)
     return int(d)
 
 def dive(a,b):
     """
-    a & b = int\n\nReturn q & r in a = b*q+r
+    a & b = int\n\nReturn q & r in a = b*q+r.
     """
     q = a//b
     r = a%b
@@ -52,6 +52,19 @@ def dive(a,b):
 
 def iscong(a,b,n):
     """
-    a, b, n = int\n\nReturn bool if a is congruent to b modulo n
+    a, b, n = int\n\nReturn bool if a is congruent to b modulo n.
     """
     return (a-b)%n == 0
+
+def cong(a,n):
+    """
+    a,n = int\n\nReturn b & c the two closer to 0. Where a is congruent to b modulo n, and a is congruent to c modulo n.
+    """
+    b = a%n
+    if b==0:
+        return b
+    elif b > 0:
+        c = b-n
+    else:
+        c = b+n
+    return b, c
