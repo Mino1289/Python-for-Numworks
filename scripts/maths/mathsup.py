@@ -57,20 +57,19 @@ def r(a,b):
     a & b = int\n\nReturn r in a = b*q+r
     """
     r = a%b
-    if r > b or r < 0:
+    if r > b:
         r -= b
+    elif r < 0:
+        r += b
     return int(r)
 
 def dive(a,b):
     """
     a & b = int\n\nReturn q & r in a = b*q+r
     """
-    q = a//b
-    r = a%b
-    if r > b or r < 0:
-        r -= b
-        q += 1
-    return q, r
+    qu = q(a,b)
+    re = r(a,b)
+    return qu, re
 
 def iscong(a,b,n):
     """
@@ -82,11 +81,12 @@ def cong(a,n):
     """
     a,n = int\n\nReturn b & c the two closer to 0. Where a is congruent to b modulo n, and a is congruent to c modulo n.
     """
-    b = a%n
+    b = r(a,n)
     if b==0:
         return int(b)
-    elif b > 0:
-        c = b-n
     else:
-        c = b+n
+        if a > 0:
+            c = b+n
+        else:
+            c = b-n
     return b, c
