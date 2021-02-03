@@ -85,7 +85,7 @@ def cong(a,n):
     if b==0:
         return int(b)
     else:
-        if a > 0:
+        if b < 0 or n < 0:
             c = b+n
         else:
             c = b-n
