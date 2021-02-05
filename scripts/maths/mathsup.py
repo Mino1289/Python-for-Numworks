@@ -79,7 +79,7 @@ def iscong(a, b, n):
     """
     a, b, n = int\n\nReturn bool if a is congruent to b modulo n.
     """
-    return bool(r(a,b) == 0)
+    return bool(r(a-b,n) == 0)
 
 
 def cong(a, n):
