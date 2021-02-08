@@ -12,7 +12,7 @@ if s == 1:
     print("Donnez le modulo :")
     mod = int(input("mod = "))
     print("Résultats :")
-    for x in range(1, min(exp+1,mod+1)):
+    for x in range(1, max(exp+1,mod+1)):
         print(str(exp)+"*"+str(x)+ "="+ str(exp*x) +" est congru à : "+ str(r(exp*x, mod)) + " [" + str(mod)+"]")
 
 elif s == 2:
@@ -24,7 +24,7 @@ elif s == 2:
     print("Donnez le modulo :")
     mod = int(input("mod = "))
     print("Résultats :")
-    for n in range(1,min(exp+1, mod+1)):
+    for n in range(1,max(exp+1, mod+1)):
         print(str(exp) + "^" + str(n) + " est congru à : " + str(r(exp**n,mod)) + " [" + str(mod)+"]")
 else:
     print("t'es con ou quoi ?")
