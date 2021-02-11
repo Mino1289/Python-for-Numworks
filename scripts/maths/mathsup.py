@@ -21,7 +21,7 @@ def arran(n, k):
     n, k = int\n\nReturn arrangement of k objects among n.
     """
     if k > n:
-        return
+        return None
     x = fact(n) / fact((n - k))
     return int(x)
 
@@ -30,8 +30,7 @@ def permut(n):
     """
     n = int\n\nReturn n!
     """
-    x = fact(n)
-    return int(x)
+    return int(fact(n))
 
 
 def disc(a, b, c):
@@ -111,8 +110,6 @@ def ppcm(a, b):
     """
     a, b = int\n\nReturn int, the least common divisor of a and b.
     """
-    if type(a+b) != int:
-        return None
     return q(a*b, pgcd(a, b))
 
 
@@ -120,8 +117,6 @@ def prime(n):
     """
     n = int\n\nReturn bool if n is a prime number.
     """
-    if type(n) != int or n < 2:
-        return False
     for i in range(2, int(n**0.5)+1):
         if r(n,i) == 0:
             return False
