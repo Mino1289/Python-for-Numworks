@@ -1,3 +1,5 @@
+from random import uniform, random
+
 def fact(x):
     r = 1
     for i in range(x):
@@ -95,11 +97,27 @@ def factor(n):
     return L
 
 def divint(n):
-    n = abs(n)
-    L = []
-    x = 1
+    n, L, x = abs(n), [], 1
     while x <= n:
         if r(n,x) == 0:
             L.append(x)
         x += 1
     return L
+
+def pi(n):
+    pts_c, pts_tt = 0, 0
+
+    for _ in range(0, n+1):
+        x, y = uniform(0, 1), uniform(0, 1)
+        if x**2 + y**2 <= 1:
+            pts_c += 1
+        pts_tt += 1
+    return 4*(pts_c/pts_tt)
+
+
+def rng(x):
+    r = random()
+    r /= 2
+    r += 0.75
+
+    return x*r
