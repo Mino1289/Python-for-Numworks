@@ -127,8 +127,6 @@ def rng(x):
 def coefb(a,b):
     if pgcd(a,b) != 1:
         return None
-    #on chercher u et v tel que
-    # a*u + b*v = 1
     L = []
     for u in range(-10,10):
         for v in range(-10,10):
