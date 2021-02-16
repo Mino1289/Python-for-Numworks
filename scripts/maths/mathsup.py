@@ -1,5 +1,6 @@
 from random import uniform, random
 
+
 def fact(x):
     r = 1
     for i in range(x):
@@ -8,6 +9,8 @@ def fact(x):
 
 
 def combi(n, k):
+    if k > n:
+        return None
     x = fact(n) / (fact((n - k)) * fact(k))
     return int(x)
 
@@ -29,8 +32,7 @@ def disc(a, b, c):
 
 
 def q(a, b):
-    q = a//b
-    r = a % b
+    q, r = a//b, a % b
     if r > b or r < 0:
         r -= b
         q += 1
@@ -47,13 +49,12 @@ def r(a, b):
 
 
 def dive(a, b):
-    qu = q(a, b)
-    re = r(a, b)
+    qu, re = q(a, b), r(a, b) 
     return qu, re
 
 
 def iscong(a, b, n):
-    return bool(r(a-b,n) == 0)
+    return bool(r(a-b, n) == 0)
 
 
 def cong(a, n):
@@ -69,6 +70,7 @@ def cong(a, n):
 
 
 def pgcd(a, b):
+    a, b = abs(a), abs(b)
     while (b > 0):
         re = r(a, b)
         a, b = b, re
@@ -76,48 +78,67 @@ def pgcd(a, b):
 
 
 def ppcm(a, b):
+    a, b = abs(a), abs(b)
     return q(a*b, pgcd(a, b))
 
 
 def prime(n):
+    n = abs(n)
     for i in range(2, int(n**0.5)+1):
-        if r(n,i) == 0:
+        if r(n, i) == 0:
             return False
     return True
 
+
 def factor(n):
-    L = []
-    div = 2
+    div, L = 2, []
     while n > 1:
-        if r(n,div) == 0:
+        if r(n, div) == 0:
             L.append(div)
-            n /= div 
+            n /= div
         else:
             div += 1
     return L
 
+
 def divint(n):
     n, L, x = abs(n), [], 1
     while x <= n:
-        if r(n,x) == 0:
+        if r(n, x) == 0:
             L.append(x)
         x += 1
     return L
 
-def pi(n):
-    pts_c, pts_tt = 0, 0
 
+def pi(n):
+    c, t = 0, 0
     for _ in range(0, n+1):
         x, y = uniform(0, 1), uniform(0, 1)
         if x**2 + y**2 <= 1:
-            pts_c += 1
-        pts_tt += 1
-    return 4*(pts_c/pts_tt)
+            c += 1
+        t += 1
+    return 4*(c/t)
 
 
 def rng(x):
-    r = random()
-    r /= 2
-    r += 0.75
-
+    r = random()/2 + 0.75
     return x*r
+
+def coefb(a,b):
+    if pgcd(a,b) != 1:
+        return None
+    #on chercher u et v tel que
+    # a*u + b*v = 1
+    L = []
+    for u in range(-10,10):
+        for v in range(-10,10):
+            if a*u + b*v == 1:
+                c = [u,v]
+                L.append(c)
+    return L
+
+def tp(x,y,z):
+    if (x*x) + (y*y) == z*z and x < y < z:
+        return True
+    else:
+        return False
