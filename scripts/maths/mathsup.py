@@ -49,7 +49,7 @@ def r(a, b):
 
 
 def dive(a, b):
-    qu, re = q(a, b), r(a, b) 
+    qu, re = q(a, b), r(a, b)
     return qu, re
 
 
@@ -113,7 +113,7 @@ def divint(n):
 def pi(n):
     c, t = 0, 0
     for _ in range(0, n+1):
-        x, y = uniform(0, 1), uniform(0, 1)
+        x, y = random(), random()
         if x**2 + y**2 <= 1:
             c += 1
         t += 1
@@ -121,21 +121,23 @@ def pi(n):
 
 
 def rng(x):
-    r = random()/2 + 0.75
+    r = uniform(0.75, 1.25)
     return x*r
 
-def coefb(a,b):
-    if pgcd(a,b) != 1:
+
+def coefb(a, b):
+    if pgcd(a, b) != 1:
         return None
     L = []
-    for u in range(-10,10):
-        for v in range(-10,10):
+    for u in range(-10, 10):
+        for v in range(-10, 10):
             if a*u + b*v == 1:
-                c = [u,v]
+                c = [u, v]
                 L.append(c)
     return L
 
-def tp(x,y,z):
+
+def tp(x, y, z):
     if (x*x) + (y*y) == z*z and x < y < z:
         return True
     else:
