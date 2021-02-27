@@ -102,12 +102,12 @@ def factor(n):
 
 
 def divint(n):
-    n, L, x = abs(n), [], 1
-    while x <= n:
-        if r(n, x) == 0:
-            L.append(x)
-        x += 1
-    return L
+    n, L = abs(n), []
+    for i in range(1, int(n**0.5)+1):
+        if n % i == 0:
+            L.append(i)
+            L.append(n//i)
+    return sorted(L)
 
 
 def pi(n):
