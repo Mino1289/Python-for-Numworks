@@ -129,8 +129,8 @@ def coefb(a, b):
     if pgcd(a, b) != 1:
         return None
     L = []
-    for u in range(-10, 10):
-        for v in range(-10, 10):
+    for u in range(-50, 50):
+        for v in range(-50, 50):
             if a*u + b*v == 1:
                 c = [u, v]
                 L.append(c)
