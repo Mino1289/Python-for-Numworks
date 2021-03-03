@@ -1,4 +1,5 @@
 from random import uniform, random
+from math import log2
 
 
 def fact(x):
@@ -71,7 +72,7 @@ def cong(a, n):
 
 def pgcd(a, b):
     a, b = abs(a), abs(b)
-    while (b > 0):
+    while b > 0:
         re = r(a, b)
         a, b = b, re
     return a
@@ -129,8 +130,8 @@ def coefb(a, b):
     if pgcd(a, b) != 1:
         return None
     L = []
-    for u in range(-50, 50):
-        for v in range(-50, 50):
+    for u in range(-10, 10):
+        for v in range(-10, 10):
             if a*u + b*v == 1:
                 c = [u, v]
                 L.append(c)
@@ -142,3 +143,50 @@ def tp(x, y, z):
         return True
     else:
         return False
+
+
+def int_bin(n):
+    L = []
+    for i in range(round(log2(n)), -1, -1):
+        if (2**i) - n <= 0:
+            L.append(1)
+            n -= 2**i
+        else:
+            L.append(0)
+    if L[0] == 0:
+        L = L[1:]
+    return joiner(L)
+
+
+def bin_int(L):
+    if type(L) != list:
+        if type(L) == int:
+            L = splitter(L)
+    n = 0
+    for i in range(len(L)):
+        if L[i] == 1:
+            n += 2**(len(L)-i)
+    return int(n/2)
+
+
+def joiner(L):
+    if type(L) != list:
+        return None
+    s = str()
+    for i in range(len(L)):
+        s += str(L[i])
+    return int(s)
+
+
+def splitter(s):
+    p = 0
+    if type(s) != str and type(s) == int:
+        p = 1
+        s = str(s)
+    L = []
+    for c in s:
+        L.append(c)
+    if p == 1:
+        for k in range(len(L)):
+            L[k] = int(L[k])
+    return L
