@@ -1,4 +1,4 @@
-from random import uniform, random
+from random import randrange, uniform, random
 from math import log2
 
 
@@ -29,7 +29,7 @@ def permut(n):
 
 def disc(a, b, c):
     d = (b**2)-(4*a*c)
-    return int(d)
+    return d
 
 
 def q(a, b):
@@ -133,8 +133,16 @@ def coefb(a, b):
     for u in range(-10, 10):
         for v in range(-10, 10):
             if a*u + b*v == 1:
-                c = [u, v]
-                L.append(c)
+                L.append([u,v])
+    return L
+    
+
+def dioph(a,b,c):
+    L = []
+    for u in range(-50, 50):
+        for v in range(-50,50):
+            if (a*u)+(b*v) == c:
+                L.append([u,v])
     return L
 
 
