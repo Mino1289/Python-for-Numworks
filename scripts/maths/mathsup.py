@@ -1,4 +1,4 @@
-from random import randrange, uniform, random
+from random import random, uniform
 from math import log2
 
 
@@ -70,6 +70,14 @@ def cong(a, n):
     return b, c
 
 
+def congi(a, n):
+    (b, c) = cong(a, n)
+    if abs(b) >= abs(c):
+        return c
+    else:
+        return b
+
+
 def pgcd(a, b):
     a, b = abs(a), abs(b)
     while b > 0:
@@ -129,21 +137,24 @@ def rng(x):
 def coefb(a, b):
     if pgcd(a, b) != 1:
         return None
-    L = []
-    for u in range(-50, 50):
-        for v in range(-50, 50):
-            if a*u + b*v == 1:
-                L.append([u,v])
-    return L
-    
+    u = congi(a, b)
+    v = int((1-a*u)/b)
+    return (u, v)
 
-def dioph(a,b,c):
+
+def dioph(a, b, c):
+    if c % pgcd(a, b) != 0:
+        return None
     L = []
-    for u in range(-50, 50):
-        for v in range(-50,50):
+    if a > b:
+        r = a
+    else:
+        r = b
+    for u in range(-r, r):
+        for v in range(-r, r):
             if (a*u)+(b*v) == c:
-                L.append([u,v])
-    return L
+                L.append((u, v))
+    return L[int(len(L)/2)]
 
 
 def tp(x, y, z):
