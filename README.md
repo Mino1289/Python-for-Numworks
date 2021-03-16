@@ -4,7 +4,7 @@ Python scripts for the Calculator <a href="https://www.numworks.com/">Numworks</
 ## How to install mathsup and physicsup
 1. Installation  
 First of all, go to my workshop at numworks <a href="https://workshop.numworks.com/python/mino-1289/">here</a>.  
-Plug your calculator in your computer and press the "Send to the Calculator" button.  
+Plug your calculator in your computer and press the `Send to the Calculator` button.  
 
 2. Using all the commands  
 Now that you have installed mathsup and/or physicsup, you wille be able to use them.  
