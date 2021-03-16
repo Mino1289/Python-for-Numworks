@@ -1,0 +1,85 @@
+# Python-for-Numworks
+Programmes Python pour la calculatrice <a href="https://www.numworks.com/">Numworks</a>.  
+
+## Comment installer mathsup ou physicsup ?
+1. Installation  
+Premièrement, allez sur mon workshop de numworks, <a href="https://workshop.numworks.com/python/mino-1289/">ici</a>.  
+Branchez votre calculatrice, puis cliquez sur le bouton `Envoyer sur ma calculatrice`.  
+
+2. Utilisation des commandes
+Maintenant que vous avez installé mathsup et/ou physicsup, vous pouvez les utiliser :  
+Débranchez votre calculatrice de votre ordinateur, et ouvrez l'application Python.  
+Puis vérifiez que seul mathsup et physicsup sont importé dans la console.  
+Pour le vérifier, sur chaque script, allez sur les `...` et appuiez sur `OK` ou `EXE`.  
+Vérifiez que seul mathsup et physicsup ont le boutons cochés pour l'auto-importation dans la console.  
+A présent allez dans la console d'execution de Python  
+Appuyez sur `var`, choisissez une fonction et appyez sur `OK` ou `EXE`
+Complétez la fonction qui viens de s'afficher dans la console avec les paramètres, séparé par des virgules.
+Puis appuyez sur `OK` ou `EXE`, votre fonction c'est lancé.
+
+### Toutes les fonctions :
+```py
+from mathsup import *
+from physicsup import *
+# mathsup :
+>>> arran(n,k) # renvoie le nombre d'arrangement de k élement parmi n
+
+>>> bin_int(n) # renvoie l'entier correspondant au nombre binaire n
+
+>>> combi(n,k) # renvoie le nombre d'élément à k élément parmi n
+
+>>> cong(a,n) # renvoie le couple (b, c), les entiers les plus proche de 0 congru à a modulo n, soit a ≡ (b, c) [n] (b est positif, pas c)  
+
+>>> congi(a,n) # renvoie b, le plus proche entier congru à a modulo n, soit a ≡ b [n] (b peut être négatif)  
+
+>>> dioph(a,b) # renvoie un couple (u, v), tel que a*u+b*v = 1  
+
+>>> dioph(a,b,c) # renvoie un couple (u,v) tel que a*u+b*v = c  
+
+>>> disc(a,b,c) # renvoie b²-4*a*c  
+
+>>> dive(a,n) # renvoie le couple de la division euclidienne de a par n
+
+>>> divint(n) # renvoie une liste de tous les entiers qui divisent n
+
+>>> fact(n) # renvoie n!
+
+>>> factor(n) # renvoie la liste de tous les facteurs premiers de n
+
+>>> int_bin(n) # renvoie n en binaire
+
+>>> iscong(a,b,n) # renvoie Vrai/Faux si a ≡ b [n]
+
+>>> log16(n) # renvoie le logarithme base 16 de n
+
+>>> permut(n) # renvoie toutes les permutations d'un ensemble de taille n (soit n!)
+
+>>> pgcd(a,b) # renvoie le plus grand diviseurs commun à a et b
+
+>>> pi(n) # renvoie une approximation de pi, plus précise si n est grand
+
+>>> ppcm(a,b) # renvoie le plus petit multiple commun à a et b
+
+>>> prime(n) # renvoie Vrai/Faux si n est un nombre premier
+
+>>> q(a,n) # renvoie le quotient entier de la division euclidienne de a par n
+
+>>> r(a,n) # renvoie le reste de la division euclidienne de a par n, toujours positif
+
+>>> rng(n) # renvoie la valeurn ± 25% aléatoirement
+
+>>> tp(x,y,z) # renvoie Vrai/Faux, si x,y,z est un triplet pythagoricien.
+
+
+# physicsup :
+>>> pvnrt(p,v,n,t) # renvoie la valeur que vous lui demandez dans sa construction : exemple :
+                   # mettez "" à la valeur que vous voulez calculer pour P*V = n*R*T
+
+>>> pvnrt(1000, "", 5, 400) -> V = 16.62 m^3  
+
+>>> rho(m,V,p) # Même principe, mais pour p = m/V 
+```
+
+#### Des questions ?
+Envoyez moi un message sur Discord : `Mino#1289`  
+Ou créez une issue et expliquez votre problème :)
