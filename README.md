@@ -3,10 +3,11 @@ Programmes Python pour la calculatrice <a href="https://www.numworks.com/">Numwo
 
 ## Comment installer mathsup ou physicsup ?
 1. Installation  
+UNIQUEMENT AVEC CHROME : 
 Premièrement, allez sur mon workshop de numworks, <a href="https://workshop.numworks.com/python/mino-1289/">ici</a>.  
 Branchez votre calculatrice, choisissez un programmes puis cliquez sur le bouton `Envoyer sur ma calculatrice`.  
 
-2. Utilisation des commandes
+2. Utilisation des commandes  
 Maintenant que vous avez installé mathsup et/ou physicsup, vous pouvez les utiliser :  
 Débranchez votre calculatrice de votre ordinateur, et ouvrez l'application Python.  
 Puis vérifiez que seul mathsup et physicsup sont importé dans la console.  
@@ -83,6 +84,7 @@ from physicsup import *
 ## Les autres programmes
 * Informations
   * Téléchargement
+  UNIQUEMENT AVEC CHROME : 
   Pour télécharger ces programmes, rendez-vous sur mon workshop chez numworks, <a href="https://workshop.numworks.com/python/mino-1289/">ici</a>.  
   Branchez votre calculatrice, choisissez le(s) programme(s) que vous souhaitez sur votre calculatrice et appuyez sur `Envoyer sur la calculatrice`.  
   C'est fini !  
