@@ -19,6 +19,7 @@ Complétez la fonction qui viens de s'afficher dans la console avec les paramèt
 Puis appuyez sur `OK` ou `EXE`, votre fonction c'est lancé.
 
 ### Toutes les fonctions :
+Passer votre souris sur le nom de la fonction pour retrouver le code dans les fichiers.  
 ```py
 from mathsup import *
 from physicsup import *
