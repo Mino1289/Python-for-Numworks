@@ -58,8 +58,6 @@ from physicsup import *
 
 >>> pgcd(a,b) # renvoie le plus grand diviseurs commun à a et b
 
->>> pi(n) # renvoie une approximation de pi, plus précise si n est grand
-
 >>> ppcm(a,b) # renvoie le plus petit multiple commun à a et b
 
 >>> prime(n) # renvoie Vrai/Faux si n est un nombre premier
@@ -67,8 +65,6 @@ from physicsup import *
 >>> q(a,n) # renvoie le quotient entier de la division euclidienne de a par n
 
 >>> r(a,n) # renvoie le reste de la division euclidienne de a par n, toujours positif
-
->>> rng(n) # renvoie la valeurn ± 25% aléatoirement
 
 >>> tp(x,y,z) # renvoie Vrai/Faux, si x,y,z est un triplet pythagoricien.
 
