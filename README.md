@@ -4,7 +4,7 @@ Programmes Python pour la calculatrice <a href="https://www.numworks.com/">Numwo
 ## Comment installer mathsup ou physicsup ?
 1. Installation  
 Premièrement, allez sur mon workshop de numworks, <a href="https://workshop.numworks.com/python/mino-1289/">ici</a>.  
-Branchez votre calculatrice, puis cliquez sur le bouton `Envoyer sur ma calculatrice`.  
+Branchez votre calculatrice, choisissez un programmes puis cliquez sur le bouton `Envoyer sur ma calculatrice`.  
 
 2. Utilisation des commandes
 Maintenant que vous avez installé mathsup et/ou physicsup, vous pouvez les utiliser :  
@@ -81,6 +81,17 @@ from physicsup import *
 >>> rho(m,V,p) # Même principe, mais pour p = m/V 
 ```
 ## Les autres programmes
+* Informations
+  * Téléchargement
+  Pour télécharger ces programmes, rendez-vous sur mon workshop chez numworks, <a href="https://workshop.numworks.com/python/mino-1289/">ici</a>.  
+  Branchez votre calculatrice, choisissez le(s) programme(s) que vous souhaitez sur votre calculatrice et appuyez sur `Envoyer sur la calculatrice`.  
+  C'est fini !  
+  * Utilisation 
+   Pour faciliter l'utilisation, il est préférable d'éxécuter chaque script séparément, soit ne pas les importer dans la console.  
+  Pour ça allez dans le script que vous voulez lancer, allez dans les paramètres du script `...` avec `OK` ou `EXE`.  
+  Et décochez l'option auto-importation dans la console, puis appuyez sur `Exécuter le script` avec `OK` ou `EXE`.  
+  Ce sera la seule façon de lancer ces programmes. Et maintenant
+ 
 
 * Maths  
   * congtest.py  
