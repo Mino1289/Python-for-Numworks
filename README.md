@@ -28,7 +28,8 @@ from physicsup import *
 
 >>> combi(n,k) # renvoie le nombre d'élément à k élément parmi n
 
->>> cong(a,n) # renvoie le couple (b, c), les entiers les plus proche de 0 congru à a modulo n, soit a ≡ (b, c) [n] (b est positif, pas c)  
+>>> cong(a,n) # renvoie le couple (b, c), les entiers les plus proche de 0 congru à a modulo n,
+              # soit a ≡ (b, c) [n] (b est positif, pas c)  
 
 >>> congi(a,n) # renvoie b, le plus proche entier congru à a modulo n, soit a ≡ b [n] (b peut être négatif)  
 
@@ -79,6 +80,25 @@ from physicsup import *
 
 >>> rho(m,V,p) # Même principe, mais pour p = m/V 
 ```
+## Les autres programmes
+
+* Maths  
+  * congtest.py  
+  Fais un tableau de congruence pour vous, il vous suffit de rentrer les valeurs demandés. (mathsup requis
+  * crypto.py  
+  Crypte un message en fonction du jour dans le mois que nous sommes. (basée sur exercices du cours) (mathsup requis)
+  * discriminant.py  
+  Calcul du discriminant, vous donnez a,b,c et le reste est automatique. (mathsup requis)
+  * racinen.py  
+  Renvoie les racines n-ième de l'unité de Z^n = 1, vous donnez n.
+* Physique-Chimie  
+  * xmax.py  
+  Calcul xmax dans une equation avec max : 3 réactifs, quantité de matière modifiable, coeficient stoechiométrique modifiable.  
+  Renvoie ce qui reste des autres reactifs.
+  * atom.py
+  Donnez un atome Z = n, et donne les informations importante sur cet atome.  
+  Obsolète avec Omega OS  
+  
 
 #### Des questions ?
 Envoyez moi un message sur Discord : `Mino#1289`  
