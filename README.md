@@ -108,7 +108,7 @@ from physicsup import *
   * xmax.py  
   Calcul xmax dans une equation avec max : 3 réactifs, quantité de matière modifiable, coeficient stoechiométrique modifiable.  
   Renvoie ce qui reste des autres reactifs.
-  * atom.py
+  * atom.py  
   Donnez un atome Z = n, et donne les informations importante sur cet atome.  
   Obsolète avec Omega OS  
   
