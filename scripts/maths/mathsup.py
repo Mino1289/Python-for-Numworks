@@ -134,22 +134,11 @@ def rng(x):
     return x*r
 
 
-def coefb(a, b):
-    if pgcd(a, b) != 1:
-        return None
-    u = congi(a, b)
-    v = int((1-a*u)/b)
-    return (u, v)
-
-
-def dioph(a, b, c):
+def dioph(a, b, c = 1):
     if c % pgcd(a, b) != 0:
         return None
     L = []
-    if a > b:
-        r = a
-    else:
-        r = b
+    r = abs(a) + abs(b)
     for u in range(-r, r):
         for v in range(-r, r):
             if (a*u)+(b*v) == c:
