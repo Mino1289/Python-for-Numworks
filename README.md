@@ -80,7 +80,7 @@ from physicsup import *
 ```
 ## Les autres programmes
 * Informations
-  * Téléchargement
+  * Téléchargement  
   UNIQUEMENT AVEC CHROME :   
   Pour télécharger ces programmes, rendez-vous sur mon workshop chez numworks, <a href="https://workshop.numworks.com/python/mino-1289/">ici</a>.  
   Branchez votre calculatrice, choisissez le(s) programme(s) que vous souhaitez sur votre calculatrice et appuyez sur `Envoyer sur la calculatrice`.  
