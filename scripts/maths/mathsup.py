@@ -134,7 +134,7 @@ def rng(x):
     return x*r
 
 
-def dioph(a, b, c = 1):
+def dioph(a, b, c = 1, l = 0):
     if c % pgcd(a, b) != 0:
         return None
     L = []
@@ -143,7 +143,10 @@ def dioph(a, b, c = 1):
         for v in range(-r, r):
             if (a*u)+(b*v) == c:
                 L.append((u, v))
-    return L[int(len(L)/2)]
+    if bool(l):
+        return L
+    else:
+        return L[int(len(L)/2)]
 
 
 def tp(x, y, z):
