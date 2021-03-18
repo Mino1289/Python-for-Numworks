@@ -1,4 +1,6 @@
-# Python-for-Numworks
+Don't know French ? Read in english [here](README.en.md)  
+
+# Python-for-Numworks  
 Programmes Python pour la calculatrice <a href="https://www.numworks.com/">Numworks</a>.  
 
 ## Comment installer mathsup ou physicsup ?
@@ -37,7 +39,14 @@ from physicsup import *
 
 >>> dioph(a,b) # renvoie un couple (u, v), tel que a*u+b*v = 1  
 
->>> dioph(a,b,c) # renvoie un couple (u,v) tel que a*u+b*v = c  
+>>> dioph(a,b,c) # renvoie un couple (u,v) tel que a*u+b*v = c
+
+>>> dioph(a,b,c,1) # renvoie la liste de couple (u,v) tel que a*u+b*v = c
+
+>>> dioph(a,b,?c,?l) # Plus généralement: renvoie toujours un couple (u,v) tel que a*u+b*v = c.
+                     # si c n'est pas spécifié, c = 1
+                     # si l n'est pas spécifié l = 0 et renvoie un couple (u,v),
+                     # sinon renvoie toutes la liste de couple.
 
 >>> disc(a,b,c) # renvoie b²-4*a*c  
 
