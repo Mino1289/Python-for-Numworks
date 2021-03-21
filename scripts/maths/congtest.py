@@ -15,7 +15,7 @@ if s == 1:
     mod = int(input("mod = "))
     print("Résultats :")
     for x in range(1, max(exp+1,mod+1)):
-        print(str(exp)+"*"+str(x)+ "+"+ str(pls) + "="+ str(exp*x+pls) +" ≡ : "+ str(r(exp*x, mod)) + " [" + str(mod)+"]")
+        print(str(exp)+"*"+str(x)+ "+"+ str(pls) + "="+ str(exp*x+pls) +" \u2261 : "+ str(r(exp*x, mod)) + " [" + str(mod)+"]")
 
 elif s == 2:
     #n en exposant
@@ -31,6 +31,6 @@ elif s == 2:
     mod = int(input("mod = "))  
     print("Résultats :")
     for n in range(1,max(exp+1, mod+1)):
-        print(str(exp) + "^" + str(n)+"+"+str(fac)+"*"+ str(n) + "+"+str(pls) + " ≡ " + str(r(exp**n+fac*n+pls,mod)) + " [" + str(mod)+"]")
+        print(str(exp) + "^" + str(n)+"+"+str(fac)+"*"+ str(n) + "+"+str(pls) + " \u2261 " + str(r(exp**n+fac*n+pls,mod)) + " [" + str(mod)+"]")
 else:
     print("t'es con ou quoi ?")
