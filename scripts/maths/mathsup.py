@@ -93,7 +93,7 @@ def ppcm(a, b):
 
 def prime(n):
     n = abs(n)
-    for i in range(2, int(n**0.5)+1):
+    for i in range(2, round(n**0.5)):
         if r(n, i) == 0:
             return False
     return True
@@ -116,7 +116,21 @@ def divint(n):
         if n % i == 0:
             L.append(i)
             L.append(n//i)
+    for k in L:
+        if L.count(k) > 1:
+            L.remove(k)
     return sorted(L)
+
+
+def nbdiv(n): 
+    f, nbr, L = factor(n), 1, []
+    lenf = len(f)
+    for k in range(lenf):
+        if L.count(f[k]) == 0:
+            L.append(f[k])
+    for k in L:
+        nbr *= len(divint(k**f.count(k)))
+    return nbr
 
 
 def pi(n):
