@@ -103,7 +103,7 @@ from physicsup import *
 
 * Maths  
   * congtest.py  
-  Fais un tableau de congruence pour vous, il vous suffit de rentrer les valeurs demandés. (mathsup requis
+  Fais un tableau de congruence pour vous, il vous suffit de rentrer les valeurs demandés. (mathsup requis)  
   * crypto.py  
   Crypte un message en fonction du jour dans le mois que nous sommes. (basée sur exercices du cours) (mathsup requis)
   * discriminant.py  
@@ -112,8 +112,8 @@ from physicsup import *
   Renvoie les racines n-ième de l'unité de Z^n = 1, vous donnez n.
 * Physique-Chimie  
   * xmax.py  
-  Calcul xmax dans une equation avec max : 3 réactifs, quantité de matière modifiable, coeficient stoechiométrique modifiable.  
-  Renvoie ce qui reste des autres reactifs.
+  Calcul xmax dans une equation de réaction avec max : 3 réactifs, quantité de matière modifiable, coeficient stoechiométrique modifiable.  
+  Renvoie le réactif limitant et ce qui reste des autres reactifs.
   * atom.py  
   Donnez un atome Z = n, et donne les informations importante sur cet atome.  
   Obsolète avec Omega OS  
