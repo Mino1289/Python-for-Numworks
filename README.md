@@ -62,6 +62,8 @@ from physicsup import *
 
 >>> iscong(a,b,n) # renvoie Vrai/Faux si a ≡ b [n]
 
+>>> pi(n) # renvoie une approximation de pi (plus n est grand, plus pi sera précis)
+
 >>> permut(n) # renvoie toutes les permutations d'un ensemble de taille n (soit n!)
 
 >>> pgcd(a,b) # renvoie le plus grand diviseurs commun à a et b
