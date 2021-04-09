@@ -123,7 +123,7 @@ def divint(n):
 
 def nbdiv(n):
     f, nbr, L = factor(n), 1, []
-    L = (f[k] for k in range(len(f)) if not L.count(f[k]))
+    L = (f[k] for k in range(len(f)) if L.count(f[k]) == 0)
     for k in L:
         nbr *= len(divint(k**f.count(k)))
     return nbr
