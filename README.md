@@ -62,8 +62,6 @@ from physicsup import *
 
 >>> iscong(a,b,n) # renvoie Vrai/Faux si a ≡ b [n]
 
->>> log16(n) # renvoie le logarithme base 16 de n
-
 >>> permut(n) # renvoie toutes les permutations d'un ensemble de taille n (soit n!)
 
 >>> pgcd(a,b) # renvoie le plus grand diviseurs commun à a et b
