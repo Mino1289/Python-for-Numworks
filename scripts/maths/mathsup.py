@@ -1,3 +1,4 @@
+
 from random import random, uniform
 from math import log2
 
@@ -28,7 +29,7 @@ def permut(n):
 
 
 def disc(a, b, c):
-    d = (b**2)-(4*a*c)
+    d = (b**2) - (4*a*c)
     return d
 
 
@@ -55,7 +56,7 @@ def dive(a, b):
 
 
 def iscong(a, b, n):
-    return bool(r(a-b, n) == 0)
+    return r(a - b, n) == 0
 
 
 def cong(a, n):
@@ -112,22 +113,17 @@ def factor(n):
 
 def divint(n):
     n, L = abs(n), []
-    for i in range(1, int(n**0.5)+1):
+    for i in range(1, int(n**0.5) + 1):
         if n % i == 0:
             L.append(i)
             L.append(n//i)
-    for k in L:
-        if L.count(k) > 1:
-            L.remove(k)
-    return sorted(L)
+
+    return sorted(k for k in L if not(L.count(k) > 1))
 
 
-def nbdiv(n): 
+def nbdiv(n):
     f, nbr, L = factor(n), 1, []
-    lenf = len(f)
-    for k in range(lenf):
-        if L.count(f[k]) == 0:
-            L.append(f[k])
+    L = (f[k] for k in range(len(f)) if L.count(f[k]) == 0)
     for k in L:
         nbr *= len(divint(k**f.count(k)))
     return nbr
@@ -135,7 +131,7 @@ def nbdiv(n):
 
 def pi(n):
     c, t = 0, 0
-    for _ in range(0, n+1):
+    for _ in range(0, n + 1):
         x, y = random(), random()
         if x**2 + y**2 <= 1:
             c += 1
@@ -155,19 +151,16 @@ def dioph(a, b, c = 1, l = 0):
     r = abs(a) + abs(b)
     for u in range(-r, r):
         for v in range(-r, r):
-            if (a*u)+(b*v) == c:
+            if (a*u) + (b*v) == c:
                 L.append((u, v))
-    if bool(l):
+    if l:
         return L
     else:
         return L[int(len(L)/2)]
 
 
 def tp(x, y, z):
-    if (x*x) + (y*y) == z*z and x < y < z:
-        return True
-    else:
-        return False
+    return (x*x) + (y*y) == z*z and x < y < z
 
 
 def int_bin(n):
@@ -185,7 +178,7 @@ def int_bin(n):
 
 def bin_int(L):
     if type(L) != list:
-        if type(L) == int:
+        if isinstance(L, int):
             L = splitter(L)
     n = 0
     for i in range(len(L)):
@@ -195,22 +188,18 @@ def bin_int(L):
 
 
 def joiner(L):
-    if type(L) != list:
+    if not isinstance(L, list):
         return None
-    s = str()
-    for i in range(len(L)):
-        s += str(L[i])
-    return int(s)
+    return int("".join(str(L[i]) for i in range(len(L))))
 
 
 def splitter(s):
     p = 0
-    if type(s) != str and type(s) == int:
+    if not isinstance(s, str) and isinstance(s, int):
         p = 1
         s = str(s)
-    L = []
-    for c in s:
-        L.append(c)
+    L = [c for c in s]
+
     if p == 1:
         for k in range(len(L)):
             L[k] = int(L[k])
