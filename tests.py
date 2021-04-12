@@ -1,6 +1,7 @@
 from scripts.maths.mathsup import arran, bin_int, combi, cong, congi, dioph, disc, dive, divint, fact, factor, int_bin, iscong, pgcd, ppcm, prime, permut, r, q, tp
 
 # test de toutes les fonctions
+print("Test pour mathsup.py")
 if arran(10, 5) != 30240:
     print("Erreur dans arran(n,k)")
 if bin_int(11101111001100000) != 122464:

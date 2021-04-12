@@ -100,15 +100,14 @@ def prime(n):
     return True
 
 
-def factor(n):
-    div, L = 2, []
-    while n > 1:
-        if r(n, div) == 0:
-            L.append(div)
-            n /= div
-        else:
-            div += 1
-    return L
+def prime(n):
+    n = abs(n)
+    if n % 2 == 0:
+        return False
+    for i in range(3, round(n**0.5), 2):
+        if n % i == 0:
+            return False, i
+    return True
 
 
 def divint(n):
