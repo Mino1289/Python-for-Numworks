@@ -94,20 +94,23 @@ def ppcm(a, b):
 
 def prime(n):
     n = abs(n)
-    for i in range(2, round(n**0.5)):
-        if r(n, i) == 0:
-            return False
-    return True
-
-
-def prime(n):
-    n = abs(n)
     if n % 2 == 0:
         return False
     for i in range(3, round(n**0.5), 2):
         if n % i == 0:
-            return False, i
+            return False
     return True
+
+
+def factor(n):
+    div, L = 2, []
+    while n > 1:
+        if n % div == 0:
+            L.append(div)
+            n /= div
+        else:
+            div += 1
+    return L
 
 
 def divint(n):
@@ -146,7 +149,7 @@ def rng(x):
     return x*r
 
 
-def dioph(a, b, c = 1, l = 0):
+def dioph(a, b, c=1, l=0):
     if c % pgcd(a, b) != 0:
         return None
     L = []
