@@ -58,9 +58,15 @@ from physicsup import *
 
 >>> factor(n) # renvoie la liste de tous les facteurs premiers de n
 
+>>> gdiv(n) # renvoie le plus grand diviseur de n (différent de n)
+
+>>> gprdiv(n) # renvoie le plus grand diviseur premier de n 
+
 >>> int_bin(n) # renvoie n en binaire
 
 >>> iscong(a,b,n) # renvoie Vrai/Faux si a ≡ b [n]
+
+>>> nprime(n) # renvoie la liste de tous les nombres premiers entre 0 et n
 
 >>> pi(n) # renvoie une approximation de pi (plus n est grand, plus pi sera précis)
 
@@ -75,6 +81,10 @@ from physicsup import *
 >>> q(a,n) # renvoie le quotient entier de la division euclidienne de a par n
 
 >>> r(a,n) # renvoie le reste de la division euclidienne de a par n, toujours positif
+
+>>> sdiv(n) # renvoie le plus petit diviseur de n (différent de 1)
+
+>>> sprdiv(n) # renvoie le plus petit diviseur premier de n
 
 >>> tp(x,y,z) # renvoie Vrai/Faux, si x,y,z est un triplet pythagoricien.
 

@@ -94,6 +94,8 @@ def ppcm(a, b):
 
 def prime(n):
     n = abs(n)
+    if n == 1:
+        return False
     if n % 2 == 0:
         if n == 2:
             return True
@@ -106,6 +108,8 @@ def prime(n):
 
 def factor(n):
     div, L = 2, []
+    if prime(n):
+        return [n]
     while n > 1:
         if n % div == 0:
             L.append(div)
@@ -134,6 +138,28 @@ def nbdiv(n):
     for k in L:
         nbr *= len(divint(k**f.count(k)))
     return nbr
+
+
+def nprime(n):
+    return [k for k in range(n) if prime(k)]
+
+
+def sdiv(n):
+    return divint(n)[1]
+
+
+def gdiv(n):
+    d = divint(n)
+    return d[len(d)-2]
+
+
+def sprdiv(n):
+    return factor(n)[1]
+
+
+def gprdiv(n):
+    f = factor(n)
+    return f[len(f)-1]
 
 
 def pi(n):
