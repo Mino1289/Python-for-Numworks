@@ -134,7 +134,6 @@ def nbdiv(n):
     for k in range(len(f)):
         if L.count(f[k]) == 0:
             L.append(f[k])
-
     for k in L:
         nbr *= len(divint(k**f.count(k)))
     return nbr
