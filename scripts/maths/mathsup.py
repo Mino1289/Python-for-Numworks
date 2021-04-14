@@ -153,7 +153,7 @@ def gdiv(n):
 
 
 def sprdiv(n):
-    return factor(n)[1]
+    return factor(n)[0]
 
 
 def gprdiv(n):
