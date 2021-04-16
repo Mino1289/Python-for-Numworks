@@ -85,10 +85,12 @@ from physicsup import *
 # physicsup :
 >>> pvnrt(p,v,n,t) # return the value that you want, pass all the parameter you have and the one you want to know the value, 
                    # put a "" in the function, it will be calculated. 
+                   
+>>> pvnrt(1000, "",5,4000) -> V = 16.62m^3
 
 >>> rho(m,V,p) # same operating system here is p = m/V, you can use it on every equation like this. 
 ```
 
 #### Questions ?
 Feel free to dm me on Discord : `Mino#1289`
-Or create an issue and explain what is your problem with :)
+Or create an issue and explain your problem :)
