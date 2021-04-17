@@ -1,17 +1,16 @@
 # Python-for-Numworks
 Python scripts for the Calculator <a href="https://www.numworks.com/">Numworks</a>
 
-## How to install mathsup and physicsup
-1. Installation
-**ONLY WITH CHROME**
+## How to install mathsup and physicsup ?
+1. Installation  
+**ONLY WITH CHROME**  
 First of all, go to my workshop at numworks <a href="https://workshop.numworks.com/python/mino-1289/">here</a>.  
 Plug your calculator in your computer and press the `Send to the Calculator` button.  
 
 2. Using the commands  
 Now that you have installed mathsup and/or physicsup, you will be able to use them.  
-Unplug your calculator, and open the python app, then, make sure that only mathsup.py and physicsup.py are imported to the console.
-To check that, on each script, go in the `...` that you see next to the name of the program, and press `OK` or `EXE`
-finally, go down and check the auto-importation in the console.  
+Unplug your calculator, and open the python app, then, make sure that only mathsup.py and physicsup.py are imported to the console.  
+To check that, on each script, go in the `...` that you see next to the name of the program, and press `OK` or `EXE` finally, go down and check the auto-importation in the console.  
 Go to the console, press `var`, a list of commands will appear, choose one of them, press `OK` or `EXE`.  
 In the console, you called a function, now you have to pass all the require parameters splitted by a comma and then press `OK` or `EXE`.  
 
@@ -92,5 +91,5 @@ from physicsup import *
 ```
 
 #### Questions ?
-Feel free to dm me on Discord : `Mino#1289`
+Feel free to dm me on Discord : `Mino#1289`  
 Or create an issue and explain your problem :)
