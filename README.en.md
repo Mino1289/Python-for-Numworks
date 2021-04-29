@@ -46,6 +46,8 @@ from physicsup import *
 
 >>> divint(n) # return a list of all the integer that divide n
 
+>>> divcom(a,b) # return a list of all the common integer that divide a and b
+
 >>> fact(n) # return n!
 
 >>> factor(n) # return a list of all the prime factor of n

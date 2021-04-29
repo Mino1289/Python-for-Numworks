@@ -143,6 +143,11 @@ def nprime(n):
     return [k for k in range(n) if prime(k)]
 
 
+def divcom(a, b):
+    L_a, L_b = divint(a), divint(b)
+    return [i for i in L_a if L_b.count(i) > 0]
+
+
 def sdiv(n):
     return divint(n)[1]
 

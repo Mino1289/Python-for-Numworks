@@ -1,4 +1,4 @@
-from scripts.maths.mathsup import arran, bin_int, combi, cong, congi, dioph, disc, dive, divint, fact, factor, int_bin, iscong, pgcd, ppcm, prime, permut, r, q, tp, nprime, sdiv, gdiv, sprdiv, gprdiv
+from scripts.maths.mathsup import arran, bin_int, combi, cong, congi, dioph, disc, dive, divint, fact, factor, int_bin, iscong, pgcd, ppcm, prime, permut, r, q, tp, nprime, sdiv, gdiv, sprdiv, gprdiv, divcom
 
 # test de toutes les fonctions
 e = 0
@@ -81,4 +81,7 @@ if sprdiv(10808) != 2:
 if gprdiv(10808) != 193:
     e += 1
     print("Erreur dans gprdiv(n)")
+if divcom(18,24) != [1,2,3,6]:
+    e += 1
+    print("Erreur dans divcom(a,b)")
 print("Fin du test avec {} erreurs.".format(e))

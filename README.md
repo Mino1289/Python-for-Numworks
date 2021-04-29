@@ -54,6 +54,8 @@ from physicsup import *
 
 >>> divint(n) # renvoie une liste de tous les entiers qui divisent n
 
+>>> divcom(a,b) # renvoie une liste des tous les diviseurs commun à a et b
+
 >>> fact(n) # renvoie n!
 
 >>> factor(n) # renvoie la liste de tous les facteurs premiers de n
