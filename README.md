@@ -68,6 +68,8 @@ from physicsup import *
 
 >>> iscong(a,b,n) # renvoie Vrai/Faux si a ≡ b [n]
 
+>>> nbdiv(n) # renvoie le nombre de diviseurs de n plus rapide que len(divint(n))
+
 >>> nprime(n) # renvoie la liste de tous les nombres premiers entre 0 et n
 
 >>> pi(n) # renvoie une approximation de pi (plus n est grand, plus pi sera précis)

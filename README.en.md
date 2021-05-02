@@ -60,6 +60,8 @@ from physicsup import *
 
 >>> iscong(a,b,n) # return bool if a ≡ b [n]
 
+>>> nbdiv(n) # return the number of divisor of n, faster than len(divint(n))
+
 >>> nprime(n) # return the list of all the prime number between 0 and n
 
 >>> pi(n) # return an approximation of pi, more accurate for big n
