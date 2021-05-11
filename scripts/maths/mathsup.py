@@ -3,37 +3,37 @@ from random import random, uniform
 from math import log2
 
 
-def fact(x):
+def fact(x: int) -> int:
     r = 1
     for i in range(x):
         r *= (i + 1)
     return int(r)
 
 
-def combi(n, k):
+def combi(n: int, k: int) -> int:
     if k > n:
         return None
     x = fact(n) / (fact((n - k)) * fact(k))
     return int(x)
 
 
-def arran(n, k):
+def arran(n: int, k: int) -> int:
     if k > n:
         return None
     x = fact(n) / fact((n - k))
     return int(x)
 
 
-def permut(n):
+def permut(n: int) -> int:
     return int(fact(n))
 
 
-def disc(a, b, c):
+def disc(a: float, b: float, c: float) -> int:
     d = (b**2) - (4*a*c)
     return d
 
 
-def q(a, b):
+def q(a: int, b: int) -> int:
     q, r = a//b, a % b
     if r > b or r < 0:
         r -= b
@@ -41,7 +41,7 @@ def q(a, b):
     return int(q)
 
 
-def r(a, b):
+def r(a: int, b: int) -> int:
     r = a % b
     if r > b:
         r -= b
@@ -50,16 +50,16 @@ def r(a, b):
     return int(r)
 
 
-def dive(a, b):
+def dive(a: int, b: int) -> int:
     qu, re = q(a, b), r(a, b)
     return qu, re
 
 
-def iscong(a, b, n):
+def iscong(a: int, b: int, n: int) -> int:
     return r(a - b, n) == 0
 
 
-def cong(a, n):
+def cong(a: int, n: int) -> tuple:
     b = r(a, n)
     if b == 0:
         return int(b)
@@ -71,7 +71,7 @@ def cong(a, n):
     return b, c
 
 
-def congi(a, n):
+def congi(a: int, n: int) -> int:
     (b, c) = cong(a, n)
     if abs(b) >= abs(c):
         return c
@@ -79,7 +79,7 @@ def congi(a, n):
         return b
 
 
-def pgcd(a, b):
+def pgcd(a: int, b: int) -> int:
     a, b = abs(a), abs(b)
     while b > 0:
         re = r(a, b)
@@ -87,15 +87,15 @@ def pgcd(a, b):
     return a
 
 
-def ppcm(a, b):
+def ppcm(a: int, b: int) -> int:
     a, b = abs(a), abs(b)
     return q(a*b, pgcd(a, b))
 
 
-def prime(n):
-    L = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101, 
-    103, 107, 109, 113, 127, 131, 137, 139, 149, 151, 157, 163, 167, 173, 179, 181, 191, 193, 197, 199, 211, 
-    223,227, 229, 233, 239, 241, 251]
+def prime(n: int) -> bool:
+    L = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101,
+         103, 107, 109, 113, 127, 131, 137, 139, 149, 151, 157, 163, 167, 173, 179, 181, 191, 193, 197, 199, 211,
+         223, 227, 229, 233, 239, 241, 251]
     n = abs(n)
     if n == 1:
         return False
@@ -105,12 +105,18 @@ def prime(n):
                 return True
             return False
     for i in range(101, int(n**0.5)+1, 2):
+        if i > int(n**0.5)+2:
+            return True
         if n % i == 0:
             return False
+        L = splitter(i)
+        L.reverse()
+        if L[0] == 3:
+            i += 2
     return True
 
 
-def factor(n):
+def factor(n: int) -> list:
     div, L = 2, []
     if prime(n):
         return [n]
@@ -123,7 +129,7 @@ def factor(n):
     return L
 
 
-def divint(n):
+def divint(n: int) -> list:
     n, L = abs(n), []
     for i in range(1, int(n**0.5) + 1):
         if n % i == 0:
@@ -133,44 +139,43 @@ def divint(n):
     return sorted(k for k in L if not(L.count(k) > 1))
 
 
-def nbdiv(n):
+def nbdiv(n: int) -> int:
     f, nbr, L = factor(n), 1, []
-    for k in range(len(f)):
-        if L.count(f[k]) == 0:
-            L.append(f[k])
+    [k for k in range(len(f)) if L.count(k) == 0]
+
     for k in L:
         nbr *= len(divint(k**f.count(k)))
     return nbr
 
 
-def nprime(n):
+def nprime(n: int) -> list:
     return [k for k in range(n) if prime(k)]
 
 
-def divcom(a, b):
+def divcom(a: int, b: int) -> list:
     L_a, L_b = divint(a), divint(b)
     return [i for i in L_a if L_b.count(i) > 0]
 
 
-def sdiv(n):
+def sdiv(n: int) -> int:
     return divint(n)[1]
 
 
-def gdiv(n):
+def gdiv(n: int) -> int:
     d = divint(n)
     return d[len(d)-2]
 
 
-def sprdiv(n):
+def sprdiv(n: int) -> int:
     return factor(n)[0]
 
 
-def gprdiv(n):
+def gprdiv(n: int) -> int:
     f = factor(n)
     return f[len(f)-1]
 
 
-def pi(n):
+def pi(n: int) -> float:
     c, t = 0, 0
     for _ in range(0, n + 1):
         x, y = random(), random()
@@ -180,12 +185,12 @@ def pi(n):
     return 4*(c/t)
 
 
-def rng(x):
+def rng(x: float) -> float:
     r = uniform(0.75, 1.25)
     return x*r
 
 
-def dioph(a, b, c=1, l=0):
+def dioph(a: int, b: int, c=1, l=0) -> int:
     if c % pgcd(a, b) != 0:
         return None
     L = []
@@ -200,11 +205,11 @@ def dioph(a, b, c=1, l=0):
         return L[int(len(L)/2)]
 
 
-def tp(x, y, z):
+def tp(x: int, y: int, z: int) -> bool:
     return (x*x) + (y*y) == z*z and x < y < z
 
 
-def int_bin(n):
+def int_bin(n: int) -> int:
     L = []
     for i in range(round(log2(n)), -1, -1):
         if (2**i) - n <= 0:
@@ -217,7 +222,7 @@ def int_bin(n):
     return joiner(L)
 
 
-def bin_int(L):
+def bin_int(L: list) -> int:
     if type(L) != list:
         if isinstance(L, int):
             L = splitter(L)
@@ -228,13 +233,13 @@ def bin_int(L):
     return int(n/2)
 
 
-def joiner(L):
+def joiner(L: list) -> int:
     if not isinstance(L, list):
         return None
     return int("".join(str(L[i]) for i in range(len(L))))
 
 
-def splitter(s):
+def splitter(s: str) -> list:
     p = 0
     if not isinstance(s, str) and isinstance(s, int):
         p = 1
@@ -242,6 +247,5 @@ def splitter(s):
     L = [c for c in s]
 
     if p == 1:
-        for k in range(len(L)):
-            L[k] = int(L[k])
+        L = [int(L[k]) for k in range(len(L))]
     return L
