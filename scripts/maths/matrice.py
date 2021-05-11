@@ -90,7 +90,7 @@ class Matrice:
         if isinstance(M, list) or isinstance(M, Matrice):
             m = []
             if len(self.value[0]) != len(M):
-                print("erreur")
+                print('erreur')
                 return m
             for i in range(len(self.value)):
                 ligne = []
