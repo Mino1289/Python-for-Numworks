@@ -16,7 +16,7 @@ class Matrice:
         return self.value[i]
 
     def __iter__(self):
-        return self.value
+        return iter(self.value)
 
     def __eq__(self, M: list) -> bool:
         if len(self.value) == len(M) and len(self.value[0]) == len(M[0]):
@@ -35,9 +35,6 @@ class Matrice:
                         return True
             return False
         return True
-
-    def __index__(self) -> list:
-        return self.value
 
     def __str__(self) -> str:
         if self.value == []:
@@ -90,7 +87,6 @@ class Matrice:
         if isinstance(M, list) or isinstance(M, Matrice):
             m = []
             if len(self.value[0]) != len(M):
-                print('erreur')
                 return m
             for i in range(len(self.value)):
                 ligne = []
@@ -112,7 +108,7 @@ class Matrice:
         return Matrice(self.value)*(-1)
 
     def __pos__(self) -> list:
-        return Matrice(self.value)*(1)
+        return Matrice(self.value)
 
     def __abs__(self) -> list:
         x, y = len(self.value), len(self.value[0])
@@ -121,32 +117,11 @@ class Matrice:
                 self.value[i][j] = abs(self.value[i][j])
         return Matrice(self.value)
 
-    def __int__(self) -> list:
-        x, y = len(self.value), len(self.value[0])
-        for i in range(x):
-            for j in range(y):
-                self.value[i][j] = int(self.value[i][j])
-        return Matrice(self.value)
-
-    def __float__(self) -> list:
-        x, y = len(self.value), len(self.value[0])
-        for i in range(x):
-            for j in range(y):
-                self.value[i][j] = float(self.value[i][j])
-        return Matrice(self.value)
-
     def __round__(self, n=None) -> list:
         x, y = len(self.value), len(self.value[0])
         for i in range(x):
             for j in range(y):
                 self.value[i][j] = round(self.value[i][j], n)
-        return Matrice(self.value)
-
-    def __complex__(self) -> list:
-        x, y = len(self.value), len(self.value[0])
-        for i in range(x):
-            for j in range(y):
-                self.value[i][j] = complex(self.value[i][j])
         return Matrice(self.value)
 
     def identity(self, n: int) -> list:
@@ -171,6 +146,8 @@ class Matrice:
         return len(self.value) == len(self.value[0])
 
     def det(self) -> float:
+        if not self.is_squared():
+            return None
         A = self.value
         n = len(A)
         if n == 0:
@@ -190,11 +167,11 @@ class Matrice:
         A = self.value
         n = len(A)
         rg = range(n-1)
-        B = [[None for p in rg] for q in rg]
+        B = [[None for _ in rg] for _ in rg]
         for p in rg:
             for q in rg:
                 B[p][q] = A[phi(p, i)][phi(q, j)]
-        return B
+        return Matrice(B)
 
     def mineur(self, i: int, j: int) -> int:
         A1 = self.supprimer_ligne_colone(i, j)
@@ -204,8 +181,10 @@ class Matrice:
         """
         Renvoie la comatrice de la matrice 
         """
+        if not self.is_squared():
+            return None
         n = len(self.value)
-        B = [[None for i in range(n)] for j in range(n)]
+        B = [[None for _ in range(n)] for _ in range(n)]
         for i in range(n):
             for j in range(n):
                 B[i][j] = self.cofacteur(i, j)
@@ -216,9 +195,9 @@ class Matrice:
         Renvoie la transposée de la Matrice.
         """
         m, n = len(self.value), len(self.value[0])
-        B = [[None for i in range(n)] for j in range(m)]
+        B = [[None for _ in range(m)] for _ in range(n)]
         for i in range(n):
-            for j in range(n):  # n ?
+            for j in range(m):
                 B[i][j] = self.value[j][i]
         return Matrice(B)
 
@@ -226,26 +205,30 @@ class Matrice:
         """
         Renvoie l'inverse de la Matrice.
         """
+        if not self.is_squared():
+            return None
         det = self.det()
         if det == 0:
             return None
         M = self.comatrice().transposee()*(1/det)
-        return M
+        return Matrice(M)
 
     def trace(self) -> float:
         """
         Renvoie la trace de la Matrice.
         """
+        if not self.is_squared():
+            return None
         M = self.value
         return sum([M[i][j] for i in range(len(M)) for j in range(len(M[i])) if i == j])
 
 
-def phi(p, i):
+def phi(p: int, i: int) -> int: 
     if p < i:
         return p
     return p+1
 
 
-def random_matrix(n):
+def random_matrix(n: int)->Matrice:
     rg = range(n)
-    return Matrice([[randint(-9, 9) for i in rg] for j in rg])
+    return Matrice([[randint(-9, 9) for _ in rg] for _ in rg])
