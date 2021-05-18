@@ -8,6 +8,10 @@ class Matrice:
 
     def __init__(self, M: list) -> None:
         self.value = M
+        self.dim = (len(M), len(M[0]))
+
+    def __repr__(self):
+        return str(self)
 
     def __len__(self) -> int:
         return len(self.value)
@@ -39,8 +43,8 @@ class Matrice:
     def __str__(self) -> str:
         if self.value == []:
             return ""
-        num_of_rows = len(self.value)
-        num_of_cols = len(self.value[0])
+        num_of_rows = len(self)
+        num_of_cols = len(self[0])
         tp = ""
         for i in range(num_of_rows):
             row_to_print = ""
@@ -60,13 +64,9 @@ class Matrice:
         for i in range(num_rows):
             for j in range(num_cols):
                 self.value[i][j] += M[i][j]
-        return Matrice(self.value)
+        return self
 
     def __sub__(self, M: list) -> list:
-        """
-        Soustrait deux matrices de même dimensions.
-        L'argument doit être une liste de liste, représentant une matrice
-        """
         if M == []:
             return self.value
         if len(self.value) != len(M) or len(self.value[0]) != len(M[0]):
@@ -76,14 +76,9 @@ class Matrice:
         for i in range(num_rows):
             for j in range(num_cols):
                 self.value[i][j] -= M[i][j]
-        return Matrice(self.value)
+        return self
 
     def __mul__(self, M: list) -> list:
-        """
-        Multiplie deux matrices, celle en argument,\n\n
-        qui doit être une liste de liste, doit avoir le même nombre de ligne que la première a de colone.
-        Renvoie une matrice de dimension (ligne de la première, colonne de celle en argument.)
-        """
         if isinstance(M, list) or isinstance(M, Matrice):
             m = []
             if len(self.value[0]) != len(M):
@@ -97,32 +92,34 @@ class Matrice:
                     ligne.append(element)
                 m.append(ligne)
             return Matrice(m)
-        if isinstance(M, float) or isinstance(M, int):
-            for i in range(len(self.value)):
-                for j in range(len(self.value[i])):
-                    self.value[i][j] *= M
-            return Matrice(self.value)
-        return Matrice(self.value)
+        if isinstance(M, float) or isinstance(M, int) or isinstance(M, complex):
+            n, m = len(self), len(self[0])
+            B = [[None for _ in range(m)] for _ in range(n)]
+            for i in range(n):
+                for j in range(m):
+                    B[i][j] = self[i][j] * M
+            return Matrice(B)
+        return self
 
     def __neg__(self) -> list:
-        return Matrice(self.value)*(-1)
+        return self*(-1)
 
     def __pos__(self) -> list:
-        return Matrice(self.value)
+        return self
 
     def __abs__(self) -> list:
         x, y = len(self.value), len(self.value[0])
         for i in range(x):
             for j in range(y):
                 self.value[i][j] = abs(self.value[i][j])
-        return Matrice(self.value)
+        return self
 
-    def __round__(self, n=None) -> list:
+    def __round__(self, n=0) -> list:
         x, y = len(self.value), len(self.value[0])
         for i in range(x):
             for j in range(y):
                 self.value[i][j] = round(self.value[i][j], n)
-        return Matrice(self.value)
+        return self
 
     def identity(self, n: int) -> list:
         """
@@ -145,16 +142,15 @@ class Matrice:
         """
         return len(self.value) == len(self.value[0])
 
-    def det(self) -> float:
+    def determinant(self) -> float:
         if not self.is_squared():
             return None
-        A = self.value
-        n = len(A)
+        n = len(self)
         if n == 0:
             return 1
         s = 0
         for j in range(n):
-            s += A[0][j] * Matrice(A).cofacteur(0, j)
+            s += self[0][j] * self.cofacteur(0, j)
         return s
 
     def cofacteur(self, i: int, j: int) -> int:
@@ -164,18 +160,17 @@ class Matrice:
         return -m
 
     def supprimer_ligne_colone(self, i: int, j: int) -> list:
-        A = self.value
-        n = len(A)
+        n = len(self)
         rg = range(n-1)
         B = [[None for _ in rg] for _ in rg]
         for p in rg:
             for q in rg:
-                B[p][q] = A[phi(p, i)][phi(q, j)]
+                B[p][q] = self[phi(p, i)][phi(q, j)]
         return Matrice(B)
 
     def mineur(self, i: int, j: int) -> int:
         A1 = self.supprimer_ligne_colone(i, j)
-        return Matrice(A1).det()
+        return A1.determinant()
 
     def comatrice(self) -> list:
         """
@@ -207,11 +202,10 @@ class Matrice:
         """
         if not self.is_squared():
             return None
-        det = self.det()
-        if det == 0:
+        if self.det == 0:
             return None
-        M = self.comatrice().transposee()*(1/det)
-        return Matrice(M)
+        M = self.comatrice().transposee()*(1/self.det)
+        return M
 
     def trace(self) -> float:
         """
@@ -223,12 +217,16 @@ class Matrice:
         return sum([M[i][j] for i in range(len(M)) for j in range(len(M[i])) if i == j])
 
 
-def phi(p: int, i: int) -> int: 
+def phi(p: int, i: int) -> int:
     if p < i:
         return p
     return p+1
 
 
-def random_matrix(n: int)->Matrice:
+def random_matrix(n: int) -> Matrice:
     rg = range(n)
     return Matrice([[randint(-9, 9) for _ in rg] for _ in rg])
+
+
+def create_matrix(M: list) -> Matrice:
+    return Matrice(M)
