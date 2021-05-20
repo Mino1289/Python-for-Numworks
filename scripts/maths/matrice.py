@@ -8,7 +8,6 @@ class Matrice:
 
     def __init__(self, M: list) -> None:
         self.value = M
-        self.dim = (len(M), len(M[0]))
 
     def __repr__(self):
         return str(self)
@@ -143,8 +142,6 @@ class Matrice:
         return len(self.value) == len(self.value[0])
 
     def determinant(self) -> float:
-        if not self.is_squared():
-            return None
         n = len(self)
         if n == 0:
             return 1
