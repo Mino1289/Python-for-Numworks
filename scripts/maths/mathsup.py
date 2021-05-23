@@ -103,9 +103,6 @@ def ppcm(a: int, b: int) -> int:
 
 
 def invmod(a: int, b: int) -> int:
-    """
-    return x such that (x * a) % b == 1
-    """
     g, x, _ = egcd(a, b)
     if g != 1:
         return None
