@@ -83,17 +83,33 @@ def congi(a: int, n: int) -> int:
         return b
 
 
+def egcd(a: int, b: int) -> tuple:
+    x0, x1, y0, y1 = 0, 1, 1, 0
+    while a != 0:
+        (q, a), b = dive(b, a), a
+        y0, y1 = y1, y0 - q * y1
+        x0, x1 = x1, x0 - q * x1
+    return (b, x0, y0)
+
+
 def pgcd(a: int, b: int) -> int:
-    a, b = abs(a), abs(b)
-    while b > 0:
-        re = r(a, b)
-        a, b = b, re
-    return a
+    gcd, _, _ = egcd(a, b)
+    return gcd
 
 
 def ppcm(a: int, b: int) -> int:
     a, b = abs(a), abs(b)
     return q(a*b, pgcd(a, b))
+
+
+def invmod(a: int, b: int) -> int:
+    """
+    return x such that (x * a) % b == 1
+    """
+    g, x, _ = egcd(a, b)
+    if g != 1:
+        return None
+    return x % b
 
 
 def prime(n: int) -> bool:
@@ -139,6 +155,24 @@ def divint(n: int) -> list:
             L.append(n//i)
 
     return sorted(k for k in L if not(L.count(k) > 1))
+
+
+def dioph(a: int, b: int, c=1, l=0) -> int:
+    if c % pgcd(a, b) != 0:
+        return None
+    if c == 1:
+        _, u, v = egcd(a, b)
+        return (u, v)
+    L = []
+    r = abs(a) + abs(b)
+    for u in range(-r, r):
+        for v in range(-r, r):
+            if (a*u) + (b*v) == c:
+                L.append((u, v))
+    if l:
+        return L
+    else:
+        return L[int(len(L)/2)]
 
 
 def nbdiv(n: int) -> int:
@@ -190,21 +224,6 @@ def pi(n: int) -> float:
 def rng(x: float) -> float:
     r = uniform(0.75, 1.25)
     return x*r
-
-
-def dioph(a: int, b: int, c=1, l=0) -> int:
-    if c % pgcd(a, b) != 0:
-        return None
-    L = []
-    r = abs(a) + abs(b)
-    for u in range(-r, r):
-        for v in range(-r, r):
-            if (a*u) + (b*v) == c:
-                L.append((u, v))
-    if l:
-        return L
-    else:
-        return L[int(len(L)/2)]
 
 
 def tp(x: int, y: int, z: int) -> bool:
