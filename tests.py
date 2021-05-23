@@ -1,4 +1,4 @@
-from scripts.maths.mathsup import arran, bin_int, combi, cong, congi, dioph, disc, dive, divint, fact, factor, int_bin, iscong, pgcd, ppcm, prime, permut, r, q, tp, nprime, sdiv, gdiv, sprdiv, gprdiv, divcom, invmod
+from scripts.maths.mathsup import arran, bin_int, combi, cong, congi, dioph, disc, dive, divint, fact, factor, int_bin, iscong, pgcd, ppcm, prime, permut, r, q, tp, nprime, sdiv, gdiv, sprdiv, gprdiv, divcom, invmod, egcd
 
 # test de toutes les fonctions
 e = 0
@@ -87,4 +87,7 @@ if divcom(18,24) != [1,2,3,6]:
 if invmod(91, 14844) != 979:
     e += 1
     print("Erreur dans invmod(a,b)")
+if egcd(a, b) != (1, 979, -6):
+    e += 1
+    print("Erreur dans egcd(a,b)")
 print("Fin du test avec {} erreurs.".format(e))

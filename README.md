@@ -56,6 +56,8 @@ from physicsup import *
 
 >>> divcom(a,b) # renvoie une liste des tous les diviseurs commun à a et b
 
+>>> egcd(a,b) # renvoie g, u et v, avec g = pgcd(a,b) et u,v tel que a*u + b*v = g
+
 >>> fact(n) # renvoie n!
 
 >>> factor(n) # renvoie la liste de tous les facteurs premiers de n

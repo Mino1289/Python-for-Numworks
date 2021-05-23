@@ -48,6 +48,8 @@ from physicsup import *
 
 >>> divcom(a,b) # return a list of all the common integer that divide a and b
 
+>>> egcd(a,b) # return (g, x, y) such that a*x + b*y = g = gcd(a, b) 
+
 >>> fact(n) # return n!
 
 >>> factor(n) # return a list of all the prime factor of n
