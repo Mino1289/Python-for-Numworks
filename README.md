@@ -66,6 +66,8 @@ from physicsup import *
 
 >>> int_bin(n) # renvoie n en binaire
 
+>>> invmod(a,n) # renvoie l'inverse de a modulo n
+
 >>> iscong(a,b,n) # renvoie Vrai/Faux si a ≡ b [n]
 
 >>> nbdiv(n) # renvoie le nombre de diviseurs de n plus rapide que len(divint(n))

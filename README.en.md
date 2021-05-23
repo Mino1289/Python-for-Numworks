@@ -58,6 +58,8 @@ from physicsup import *
 
 >>> int_bin(n) # return n in binary
 
+>>> invmod(a,b) # return the inverse of a mod n
+
 >>> iscong(a,b,n) # return bool if a ≡ b [n]
 
 >>> nbdiv(n) # return the number of divisor of n, faster than len(divint(n))
