@@ -127,6 +127,10 @@ from physicsup import *
   Calcul du discriminant, vous donnez a,b,c et le reste est automatique. (mathsup requis)
   * racinen.py  
   Renvoie les racines n-ième de l'unité de Z^n = 1, vous donnez n.
+  * linealge.py
+  Contient trois classes, Matrice, Vecteur et Point, permettant de faire des transformation avec des matrices, vecteurs, etc..   
+  Les classes Point et Vecteurs, peuvent être représenté dans un plot (matplotlib.pyplot requis)
+  
 * Physique-Chimie  
   * xmax.py  
   Calcul xmax dans une equation de réaction avec max : 3 réactifs, quantité de matière modifiable, coeficient stoechiométrique modifiable.  
