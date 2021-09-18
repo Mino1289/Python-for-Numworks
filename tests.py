@@ -1,4 +1,4 @@
-from scripts.maths.mathsup import arran, bin_int, combi, cong, congi, dioph, disc, dive, divint, fact, factor, int_bin, iscong, pgcd, ppcm, prime, permut, r, q, tp, nprime, sdiv, gdiv, sprdiv, gprdiv, divcom, invmod, egcd
+from scripts.maths.mathsup import arran, combi, cong, congi, dioph, disc, dive, divint, fact, factor, iscong, pgcd, ppcm, prime, permut, r, q, tp, nprime, sdiv, gdiv, sprdiv, gprdiv, divcom, invmod, egcd, lstbin, max2int, based
 
 # test de toutes les fonctions
 e = 0
@@ -6,9 +6,6 @@ print("Test pour mathsup.py...")
 if arran(10, 5) != 30240:
     e += 1
     print("Erreur dans arran(n,k)")
-if bin_int(11101111001100000) != 122464:
-    e += 1
-    print("Erreur dans bin_int(n)")
 if combi(10, 5) != 252:
     e += 1
     print("Erreur dans combi(n,k)")
@@ -42,9 +39,6 @@ if fact(10) != permut(10) or fact(10) != 3628800:
 if factor(96) != [2, 2, 2, 2, 2, 3]:
     e += 1
     print("Erreur dans factor(n)")
-if int_bin(122464) != 11101111001100000:
-    e += 1
-    print("Erreur dans int_bin(n)")
 if not iscong(25, 6, 1):
     e += 1
     print("Erreur dans iscong(a,b,n)")
@@ -81,13 +75,22 @@ if sprdiv(10808) != 2:
 if gprdiv(10808) != 193:
     e += 1
     print("Erreur dans gprdiv(n)")
-if divcom(18,24) != [1,2,3,6]:
+if divcom(18, 24) != [1, 2, 3, 6]:
     e += 1
     print("Erreur dans divcom(a,b)")
-if invmod(91, 14844) != 979:
+if invmod(91, 1487) != 719:
     e += 1
     print("Erreur dans invmod(a,b)")
-if egcd(a, b) != (1, 979, -6):
+if egcd(86, 977) != (1, -284, 25):
     e += 1
     print("Erreur dans egcd(a,b)")
+if max2int(-32, 4) != max(-32, 4):
+    e += 1
+    print("Erreur dans max2int(a,b)")
+if lstbin(456) != [256, 128, 64, 8]:
+    e += 1
+    print("Erreur dans lstbin(a,b)")
+if based("654",7) != "333":
+    e += 1
+    print("Erreur dans based(n,base)")
 print("Fin du test avec {} erreurs.".format(e))

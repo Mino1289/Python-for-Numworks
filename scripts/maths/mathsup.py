@@ -227,34 +227,71 @@ def tp(x: int, y: int, z: int) -> bool:
     return (x*x) + (y*y) == z*z and x < y < z
 
 
-def int_bin(n: int) -> int:
+def lstbin(n: int) -> list:
+    a = n
     L = []
-    for i in range(round(log2(n)), -1, -1):
-        if (2**i) - n <= 0:
-            L.append(1)
-            n -= 2**i
-        else:
-            L.append(0)
-    if L[0] == 0:
-        L = L[1:]
-    return joiner(L)
+    lg2 = int(log2(n))
+    for k in range(lg2, 0, -1):
+        if (2**k) <= a:
+            a -= 2**k
+            L.append(2**k)
+    if r(n, 2) == 1:
+        L.append(1)
+    return L
 
 
-def bin_int(L: list) -> int:
-    if type(L) != list:
-        if isinstance(L, int):
-            L = splitter(L)
-    n = 0
-    for i in range(len(L)):
-        if L[i] == 1:
-            n += 2**(len(L)-i)
-    return int(n/2)
+def max2int(a: int, b: int) -> int:
+    return q(a + b + abs(a-b), 2)
 
 
-def joiner(L: list) -> int:
+def based(n: str, base: int, base_out: int = 10) -> str:
+    assert base < 36 or base_out < 36
+    symbs = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f", "g",
+             "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+    symbsofbase = symbs[0:base]
+
+    s = n
+    virg = (s.count(".") > 0)
+    if virg and base_out != 10:
+        return ValueError("Number with ',' only when output is base 10")
+    if virg:
+        lt = s.split(".")
+        l1 = list(lt[0])
+        l2 = list(lt[1])
+        l1.reverse()
+
+        nbase10 = 0
+        for k in range(len(l1)):
+            nbase10 += symbsofbase.index(l1[k])*base**k
+        for k in range(len(l2)):
+            nbase10 += symbsofbase.index(l2[k])*base**(-(k+1))
+        if base_out == 10:
+            return str(nbase10)
+    else:
+        l = list(s)
+        l.reverse()
+
+        nbase10 = 0
+        for k in range(len(l)):
+            nbase10 += symbsofbase.index(l[k])*base**k
+        if base_out == 10:
+            return str(nbase10)
+
+    symbsofoutbase = symbs[0:base]
+    k = nbase10
+    l_out = []
+    while k > 0:
+        l_out.append(symbsofoutbase[r(k, base_out)])
+        k = q(k, base_out)
+    l_out.reverse()
+    s_out = "".join(l_out)
+    return s_out
+
+
+def joiner(L: list) -> float:
     if not isinstance(L, list):
         return None
-    return int("".join(str(L[i]) for i in range(len(L))))
+    return float("".join(str(L[i]) for i in range(len(L))))
 
 
 def splitter(s: str) -> list:
