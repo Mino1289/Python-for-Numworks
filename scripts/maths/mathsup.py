@@ -277,7 +277,7 @@ def based(n: str, base: int, base_out: int = 10) -> str:
         if base_out == 10:
             return str(nbase10)
 
-    symbsofoutbase = symbs[0:base]
+    symbsofoutbase = symbs[0:base_out]
     k = nbase10
     l_out = []
     while k > 0:
