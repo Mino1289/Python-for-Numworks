@@ -102,7 +102,7 @@ def ppcm(a: int, b: int) -> int:
     return q(a*b, pgcd(a, b))
 
 
-def invmod(a: int, b: int) -> int:
+def modinv(a: int, b: int) -> int:
     g, x, _ = egcd(a, b)
     if g != 1:
         return None
@@ -244,14 +244,18 @@ def max2int(a: int, b: int) -> int:
     return q(a + b + abs(a-b), 2)
 
 
-def based(n: str, base: int, base_out: int = 10) -> str:
+def based(n: str, base: int, base_out: int = 10, bits: int = 8) -> str:
     assert base < 36 or base_out < 36
+    if isinstance(n, int):
+        n = str(n)
+    assert not n.startswith("-")
     symbs = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f", "g",
              "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
     symbsofbase = symbs[0:base]
 
     s = n
     virg = (s.count(".") > 0)
+
     if virg and base_out != 10:
         return ValueError("Number with ',' only when output is base 10")
     if virg:
@@ -266,7 +270,7 @@ def based(n: str, base: int, base_out: int = 10) -> str:
         for k in range(len(l2)):
             nbase10 += symbsofbase.index(l2[k])*base**(-(k+1))
         if base_out == 10:
-            return str(nbase10)
+            return nbase10
     else:
         l = list(s)
         l.reverse()
@@ -275,7 +279,7 @@ def based(n: str, base: int, base_out: int = 10) -> str:
         for k in range(len(l)):
             nbase10 += symbsofbase.index(l[k])*base**k
         if base_out == 10:
-            return str(nbase10)
+            return nbase10
 
     symbsofoutbase = symbs[0:base_out]
     k = nbase10
@@ -286,6 +290,23 @@ def based(n: str, base: int, base_out: int = 10) -> str:
     l_out.reverse()
     s_out = "".join(l_out)
     return s_out
+
+
+def cplmt2(n: int, bits: int = 8) -> str:
+    b = based(str(abs(n)), 10, 2)
+
+    if n >= 0:
+        return b
+    if len(b) < bits:
+        b = "0" * (bits - len(b)) + b
+    c = ""
+    for k in b:
+        if k == "0":
+            c += "1"
+        else:
+            c += "0"
+    c = int(bin(based(c, 2)), 2) + 1
+    return based(str(c), 10, 2)
 
 
 def joiner(L: list) -> float:
