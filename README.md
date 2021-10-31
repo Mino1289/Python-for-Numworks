@@ -30,6 +30,8 @@ from physicsup import *
 
 >>> bin_int(n) # renvoie l'entier correspondant au nombre binaire n
 
+>>> clamp(v,min_v,max_v) # limite v entre min_v et max_v
+
 >>> combi(n,k) # renvoie le nombre d'élément à k élément parmi n
 
 >>> cong(a,n) # renvoie le couple (b, c), les entiers les plus proche de 0 congru à a modulo n,
@@ -89,6 +91,8 @@ from physicsup import *
 >>> q(a,n) # renvoie le quotient entier de la division euclidienne de a par n
 
 >>> r(a,n) # renvoie le reste de la division euclidienne de a par n, toujours positif
+
+>>> remap(v,from_min,from_max,to_min,to_max) # convertit une valeur v entre from_min et from_max à une valeur entre to_min et to_max
 
 >>> sdiv(n) # renvoie le plus petit diviseur de n (différent de 1)
 

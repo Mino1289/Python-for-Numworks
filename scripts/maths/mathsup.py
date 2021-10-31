@@ -325,3 +325,12 @@ def splitter(s: str) -> list:
     if p == 1:
         L = [int(L[k]) for k in range(len(L))]
     return L
+
+def clamp(v, min_value, max_value):
+    return max(min(v, max_value), min_value)
+
+def remap(v, from_min, from_max, to_min, to_max):
+    from_span = from_max - from_min
+    to_span = to_max - to_min
+    value_scaled = float(v - from_min) / float(from_span)
+    return to_min + (value_scaled * to_span)
