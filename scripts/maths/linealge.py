@@ -2,6 +2,7 @@ from __future__ import annotations
 from random import randint
 from typing import Union
 from math import atan
+from mathsup import factor
 
 
 class Matrice:
@@ -112,13 +113,18 @@ class Matrice:
             return self
         if n < 0:
             MI = self.inverse()
-            M = MI
-            for _ in range(abs(n+1)):
-                M *= MI
-            return M
+            L = factor(abs(n))
+            for i in range(len(L)):
+                ME = MI
+                for _ in range(L[i]-1):
+                    MI *= ME
+            return MI
         M = self
-        for _ in range(n-1):
-            M *= self
+        L = factor(n)
+        for i in range(len(L)):
+            ME = M
+            for _ in range(L[i]-1):
+                M *= ME
         return M
 
     def __neg__(self) -> Matrice:
